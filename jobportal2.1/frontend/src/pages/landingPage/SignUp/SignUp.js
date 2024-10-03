@@ -125,15 +125,15 @@ export default function SignUp() {
     typeof signupDetails.news === "boolean")
 
 
-    console.log("TEST:2",
-      signupDetails.name.trim().length > 0 &&
-      signupDetails.email.trim().length > 0 &&
-      signupDetails.password.trim().length > 0 &&
-      signupDetails.bio.trim().length > 0 &&
-      (signupDetails.contactNumber.trim().length === 0 ||
-        isValidPhoneNumber(signupDetails.contactNumber)) &&
-      signupDetails.profile.trim().length > 0 &&
-      typeof signupDetails.news === "boolean")
+  console.log("TEST:2",
+    signupDetails.name.trim().length > 0 &&
+    signupDetails.email.trim().length > 0 &&
+    signupDetails.password.trim().length > 0 &&
+    signupDetails.bio.trim().length > 0 &&
+    (signupDetails.contactNumber.trim().length === 0 ||
+      isValidPhoneNumber(signupDetails.contactNumber)) &&
+    signupDetails.profile.trim().length > 0 &&
+    typeof signupDetails.news === "boolean")
 
 
   if (signupDetails.type === "applicant") {
@@ -361,7 +361,7 @@ export default function SignUp() {
       let formData = new FormData();
       for (let i of files) {
         formData.append("file", i);
-        formData.append("upload_preset", "Your_upload_preset");
+        formData.append("upload_preset", "lrcn93pt");
         formData.append("folder", "jobportal");
         let response = await toast.promise(apiUploadImages(formData), {
           pending: "Uploading images...",
@@ -393,9 +393,9 @@ export default function SignUp() {
     });
   };
 
-console.log("Signup Type:", signupDetails.type);
-console.log("All Fields Checked Applicant:", allFieldsCheckedApplicant);
-console.log("All Fields Checked Recruiter:", allFieldsCheckedRecruiter);
+  console.log("Signup Type:", signupDetails.type);
+  console.log("All Fields Checked Applicant:", allFieldsCheckedApplicant);
+  console.log("All Fields Checked Recruiter:", allFieldsCheckedRecruiter);
 
   return (
     <div className="min-h-screen bg-[#f8e5d4] md:py-24">
@@ -675,12 +675,11 @@ console.log("All Fields Checked Recruiter:", allFieldsCheckedRecruiter);
         </label>
 
         <button
-          className={`mt-2 w-full font-semibold px-4 py-3 rounded-lg text-sm ${
-            (signupDetails.type === "applicant" && allFieldsCheckedApplicant) ||
-            (signupDetails.type === "recruiter" && allFieldsCheckedRecruiter)
+          className={`mt-2 w-full font-semibold px-4 py-3 rounded-lg text-sm ${(signupDetails.type === "applicant" && allFieldsCheckedApplicant) ||
+              (signupDetails.type === "recruiter" && allFieldsCheckedRecruiter)
               ? "bg-primary text-gray-500 hover:bg-[#F2994A] hover:text-black border-yellow-100 cursor-pointer"
               : "bg-yellow-100 text-yellow-800 cursor-not-allowed border-yellow-100"
-          }`}
+            }`}
           onClick={() => {
             signupDetails.type === "applicant"
               ? handleLogin()

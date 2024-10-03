@@ -10,23 +10,23 @@ const initRouter = require("./routes");
 // Connect to MongoDB
 mongoose
   .connect(
-    "mongodb://localhost:27017/jobPotal"
+    "mongodb+srv://nigar__08__:Nigar27%40@cluster0.amz2f.mongodb.net/jobportal?retryWrites=true&w=majority"
   )
   .then(() => console.log("Connected to DB"))
   .catch((err) => console.error(err));
 
 // Create an Express application, set port for server
 const app = express();
-const port = 5000;
+const port = 5001;
 
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors(
   {
-    origin: 'http://localhost:4000', // Replace with your frontend origin
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
-  credentials: true // If you want to allow cookies or authorization headers
+    origin: 'http://localhost:3000', // Replace with your frontend origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
+    credentials: true // If you want to allow cookies or authorization headers
   }
 ));
 app.use(express.json());
